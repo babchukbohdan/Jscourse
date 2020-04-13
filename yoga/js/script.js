@@ -84,26 +84,26 @@ function showSlides(n) {
 
     if (n > slides.length) {
         sliderIndex = 1;
-    };
+    }
 
     if (n < 1) {
         sliderIndex = slides.length;
-    };
+    }
 
     slides.forEach((item) => item.style.display = 'none');
     dots.forEach((dot) => dot.classList.remove('dot-active'));
     
     slides[sliderIndex - 1].style.display = 'block';
     dots[sliderIndex - 1].classList.add('dot-active');
-};
+}
 
 function plusSlides(n) {
     showSlides(sliderIndex += n);
-};
+}
 
 function currentSlide(n) {
     showSlides(sliderIndex = n);
-};
+}
 
 prev.addEventListener('click', function() {
     plusSlides(-1);
@@ -169,3 +169,47 @@ place.addEventListener('change', function() {
 
 
 localStorage.setItem('number', 1);
+
+
+// Timer 
+
+let deadline = '2020-04-24';
+
+function getTimeremaining(endtime) {
+    let total = Date.parse(endtime) - Date.parse(new Date()),
+        sec = Math.floor( (total / 1000) % 60),
+        min = Math.floor( (total / 1000 / 60) % 60),
+        hours = Math.floor( (total / (1000 *60 * 60)));
+
+    return {
+        total,
+        sec,
+        min,
+        hours
+    };
+}
+
+function setClock(id, endtime) {
+    let timer = document.querySelector(id),
+        hours = timer.querySelector('.hours'),
+        minutes = timer.querySelector('.minutes'),
+        seconds = timer.querySelector('.seconds');
+
+        timeInterval = setInterval(updateClock, 1000);
+
+    function updateClock() {
+        let t = getTimeremaining(endtime);
+
+        hours.innerHTML = t.hours;
+        minutes.innerHTML = t.min;
+        seconds.innerHTML = t.sec;
+
+        if (t.total <= 0) {
+            clearInterval(timeInterval);
+        }
+    }
+
+    return '';
+}
+
+setClock('#timer', deadline);

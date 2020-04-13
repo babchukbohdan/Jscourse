@@ -9,13 +9,14 @@
   font-size: 17px;
   border: none;
   cursor: pointer;
+  background-color: #fff;
 }
 .app-list-item button:focus {
     box-shadow: none;
     outline: none;
 }
 .app-list-item .btn-star {
-    color: #FFD700;
+    color: #aeaeae;
 }
 .app-list-item .btn-trash {
     color: red;
@@ -46,9 +47,9 @@
 }
 
 .app-list-item.important .app-list-item-label {
-  color: #FFD700;
+  color: rgba(192, 165, 10, 0.993);
 }
 
 .app-list-item.important .btn-star {
-    color: #aeaeae;
+    color:#FFD700;
 }

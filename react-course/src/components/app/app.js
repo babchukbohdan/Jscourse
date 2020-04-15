@@ -15,9 +15,9 @@ const AppBlock = styled.div`
   max-width: 800px;
 `
 
-const StyledAppBlock = styled(AppBlock)`
-  background-color: grey;
-`
+// const StyledAppBlock = styled(AppBlock)`
+//   background-color: grey;
+// `
 
 const App = () => {
 
@@ -34,7 +34,7 @@ const App = () => {
   ]
   
   return (
-    <StyledAppBlock>
+    <AppBlock>
       <AppHeader/>
       <div className="search-panel d-flex">
           <SearchPanel/>
@@ -42,7 +42,7 @@ const App = () => {
       </div>
       <PostList posts={data} />
       <PostAddForm/>
-    </StyledAppBlock>
+    </AppBlock>
   )
 }
 

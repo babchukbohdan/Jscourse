@@ -2,25 +2,10 @@ import React, {Component} from 'react';
 import './itemList.css';
 import Spinner from '../spinner';
 import PropTypes from 'prop-types';
+import GOTService from '../../services/gotService';
 
 
-export default class ItemList extends Component {
-
-	state = {
-		itemList: null
-	}
-
-	componentDidMount() {
-
-		const {getData} = this.props;
-
-		getData()
-			.then( (itemList) => {
-				this.setState({
-					itemList
-				})
-			})
-	}
+export class ItemList extends Component {
 	
 	renderItems(arr) {
 		return arr.map( (item, i) => {
@@ -42,14 +27,9 @@ export default class ItemList extends Component {
 	}
 	
 	render() {
-
-		const {itemList} = this.state;
+		const {data} = this.props;
 		
-		if (!itemList) {
-			return <Spinner/>
-		}
-		
-		const items = this.renderItems(itemList)
+		const items = this.renderItems(data)
 
 		return (
 			<ul className="item-list list-group">
@@ -66,3 +46,36 @@ ItemList.defaultProps = {
 ItemList.propTypes = {
 	onItemSelected: PropTypes.func
 }
+
+const withData = (View) => {
+	return class extends Component {
+
+		state = {
+			data: null
+		}
+	
+		componentDidMount() {
+			const {getData} = this.props;
+			getData()
+				.then( (data) => {
+					this.setState({
+						data
+					})
+				})
+		}
+		
+		render() {
+			const {data} = this.state;
+		
+			if (!data) {
+				return <Spinner/>
+			}
+
+			return <View 
+							{...this.props} 
+							data={data} />
+		}
+	}
+}
+const {getAllCharacters} = new GOTService();
+export default withData(ItemList);

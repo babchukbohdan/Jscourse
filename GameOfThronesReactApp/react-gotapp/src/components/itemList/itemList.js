@@ -15,7 +15,7 @@ function ItemList({getData, onItemSelected, renderItem}) {
 			.then( (data) => {
 				updateList(data)
 			})
-	}, []) // Если пустой массив 
+	}, []) // Если пустой массив useEffect выполниться при появлении и удалении
 
 	function renderItems(arr) {
 		return arr.map( (item) => {

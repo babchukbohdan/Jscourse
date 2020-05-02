@@ -38,10 +38,10 @@ const addSameToCart = (id) => {
   }
 }
 
-const removeCategoryFromCart = (category) => {
+const removeAllSameFromCart = (id) => {
   return {
-    type: 'REMOVE_CATEGORY_FROM_CART',
-    payload: category
+    type: 'REMOVE_ALL_SAME_FROM_CART',
+    payload: id
   }
 }
 
@@ -52,5 +52,5 @@ export {
   addedToCart,
   deleteFromCart,
   addSameToCart,
-  removeCategoryFromCart
+  removeAllSameFromCart
 };

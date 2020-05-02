@@ -30,14 +30,29 @@
             font-weight: 700;
         }
     }
+    &__category_img {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+    }
     &__btn {
+        display: inline-block;
         width: 150px;
         height: 40px;
+
         border: none;
-        background-color: #29a745;
         border-radius: 4px;
+
+        background-color: #29a745;
         color: #fff;
         font-size: 16px;
         cursor: pointer;
+
+        transition: all ease .3s;
     }
+    &__btn:hover {
+        background-color: #47c762;
+    }
+
+
 }

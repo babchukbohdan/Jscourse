@@ -62,34 +62,29 @@ const reducer = (state = initialState, action) => {
     case 'ITEM_ADD_SAME_TO_CART':
 
       const myId = action.payload;
-
-      const findItem = state.items.findIndex(item => item.id === myId);
-
+      const findItemIndx = state.items.findIndex(item => item.id === myId);
+      
       return {
         ...state,
         items: [
           ...state.items.slice(),
-          ...state.items.slice(findItem, 1)
+          ...state.items.slice(findItemIndx, findItemIndx + 1)
         ]
       }
 
-    case 'REMOVE_CATEGORY_FROM_CART':
+    case 'REMOVE_ALL_SAME_FROM_CART':
 
-      const category = action.payload;
-      const itemsWithoutCategory = state.items.filter(item => item.category !== category);
+      const idz = action.payload;
+      const itemsWithoutExactId = state.items.filter(item => item.id !== idz);
 
       return {
         ...state,
         items: [
-          ...itemsWithoutCategory
+          ...itemsWithoutExactId
         ]
       }
-    
-  
-  
 
     default:
-      console.log(state);
       return state;
   }
 }

@@ -51,7 +51,7 @@ class MenuList extends Component {
 					
 				</ul>
 				<div className='icons__copyright'>
-					Icons made by - <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from 
+					&#169; Icons made by - <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from 
 					<a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
 				</div>
 			</>

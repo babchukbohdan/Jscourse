@@ -21,12 +21,21 @@
         border: 1px solid rgba(256,256,256, .2);
         background-color: rgba(0,0,0,.7);
         box-shadow: 0 0 20px rgba(256,256,256, .1);
-        &-title, &-price  {
+        &-title, &-price, &-count {
             width: 250px;
             text-align: center;
             color: #fff;
             font-size: 24px;
         }
+        &-count {
+            display: flex;
+            align-items: center;
+            &__input {
+                width: 30px;
+                height: 29px;
+            }
+        }
+        
         &-img {
             height: 125px;
             width: 250px;

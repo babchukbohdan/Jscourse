@@ -3,8 +3,18 @@
         min-height: 100vh;
         padding: 50px;
         display: flex;
-        justify-content: flex-start;
+        justify-content: space-around;
         align-items: flex-start;
         flex-wrap: wrap;
+    }
+}
+
+.icons__copyright {
+    color: TOmato;
+    padding: 20px;
+    text-align: center;
+
+    & a{
+        color: bisque
     }
 }

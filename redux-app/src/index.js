@@ -10,6 +10,7 @@ import App from './components/app';
 
 
 const store = createStore(reducer);
+console.log(store);
 const {dispatch} = store;
 
 
